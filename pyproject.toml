@@ -9,7 +9,7 @@ description = "Course package for comparing CYP substrate chemical space against
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
-  { name = "BIO2502 course project team" }
+  { name = "cypchemspace project contributors" }
 ]
 dependencies = [
   "numpy",

@@ -38,6 +38,6 @@ Future versions could add all eight RDKit fingerprint methods, unique-InChIKey c
 
 ## 10. References
 
-- BIO2502 Python/R course project guide.
+- Python/R bioinformatics course project guide.
 - RDKit documentation for Morgan fingerprints and molecular descriptors.
 - UMAP and k-nearest-neighbor methods for exploratory chemical-space analysis.

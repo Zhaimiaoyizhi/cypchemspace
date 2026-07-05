@@ -1,8 +1,8 @@
-# BIO2502 课程项目结题报告
+# 课程项目结题报告
 
 ## 摘要
 
-本课程项目将原始 `CYP_comparison` 研究仓库中最适合教学展示的一条主线，裁剪并包装为一个独立的 Python package：`cypchemspace`。项目围绕“本地数据库中的膜相关 CYP 底物是否在 P450DB 背景底物的化学结构空间中表现出局部富集”这一问题，构建了从小型底物表读取、RDKit 分子解析、Morgan fingerprint 生成、二维 embedding、kNN permutation 局部富集检验到核心图表输出的可复现流程。项目代码已整理为标准 `src-layout` 结构，包含命令行入口、可复用 API、pytest 测试、示例数据、demo notebook、README、环境文件和课程文档。项目公开仓库链接为：<https://github.com/Zhaimiaoyizhi/cypchemspace-bio2502>。
+本课程项目将原始 `CYP_comparison` 研究仓库中最适合教学展示的一条主线，裁剪并包装为一个独立的 Python package：`cypchemspace`。项目围绕“本地数据库中的膜相关 CYP 底物是否在 P450DB 背景底物的化学结构空间中表现出局部富集”这一问题，构建了从小型底物表读取、RDKit 分子解析、Morgan fingerprint 生成、二维 embedding、kNN permutation 局部富集检验到核心图表输出的可复现流程。项目代码已整理为标准 `src-layout` 结构，包含命令行入口、可复用 API、pytest 测试、示例数据、demo notebook、README、环境文件和课程文档。项目公开仓库链接为：<https://github.com/Zhaimiaoyizhi/cypchemspace>。
 
 关键词：Cytochrome P450；Morgan fingerprint；RDKit；UMAP；kNN permutation；Python package
 
@@ -12,7 +12,7 @@
 
 原始 `CYP_comparison` 项目包含较完整的科研探索流程，包括底物抽取、结构映射、P450DB 背景整合、RDKit fingerprint、UMAP 可视化、kNN permutation 局部富集检验、fingerprint sensitivity、unique-InChIKey 去重敏感性分析和 logP 补充解释等。然而，原始项目包含大量全量数据、历史脚本和中间结果，不适合作为课程项目直接提交。
 
-因此，本项目的目标不是提交完整科研仓库，而是将其中一条核心分析链路压缩为一个规范、轻量、可安装、可测试、可演示的 BIO2502 Python package。这样既保留真实生物信息学问题，又满足课程对软件工程规范和可复现分析流程的要求。
+因此，本项目的目标不是提交完整科研仓库，而是将其中一条核心分析链路压缩为一个规范、轻量、可安装、可测试、可演示的 Python package。这样既保留真实生物信息学问题，又满足课程对软件工程规范和可复现分析流程的要求。
 
 ## 二、项目设计
 

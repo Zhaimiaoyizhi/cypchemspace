@@ -2,13 +2,13 @@
 
 ## 一、课题名称
 
-**cypchemspace：面向 BIO2502 课程项目的 CYP 底物化学空间比较 Python package**
+**cypchemspace：面向课程项目的 CYP 底物化学空间比较 Python package**
 
 ## 二、课题背景与研究意义
 
 细胞色素 P450（Cytochrome P450, CYP）是一类广泛参与小分子代谢、天然产物修饰、药物代谢和环境化合物转化的酶家族。不同来源的 CYP 底物在化学结构上具有明显差异：有些底物更偏脂溶性、萜类或甾体类，有些底物则更接近氨基酸、吲哚或其他亲水性小分子。理解这些底物在化学结构空间中的分布，有助于从计算角度认识 CYP 底物选择性、数据库覆盖范围和潜在研究空白。
 
-原始 `CYP_comparison` 项目已经围绕本地数据库 `mydb` 与 P450DB 背景底物进行了较完整的探索，包括底物抽取、结构映射、RDKit fingerprint、UMAP 可视化、kNN permutation 局部富集检验、fingerprint sensitivity、unique-InChIKey 去重敏感性分析和 logP 补充解释等。但是，原始项目规模较大，包含大量历史脚本、全量数据、中间结果和科研探索分支，不适合直接作为 BIO2502 课程项目提交。
+原始 `CYP_comparison` 项目已经围绕本地数据库 `mydb` 与 P450DB 背景底物进行了较完整的探索，包括底物抽取、结构映射、RDKit fingerprint、UMAP 可视化、kNN permutation 局部富集检验、fingerprint sensitivity、unique-InChIKey 去重敏感性分析和 logP 补充解释等。但是，原始项目规模较大，包含大量历史脚本、全量数据、中间结果和科研探索分支，不适合直接作为课程项目提交。
 
 因此，本课题拟将其中最适合课程展示的一条主线裁剪为一个独立、轻量、可安装、可测试、可复现的 Python package。该项目既保留真实生物信息学问题，又符合课程对软件工程、API 设计、CLI、测试、notebook 和文档的要求。
 
@@ -153,7 +153,7 @@ RDKit、pandas、numpy、scikit-learn、matplotlib 和 umap-learn 均为成熟 P
 
 ### 7.3 课程可行性
 
-项目覆盖 BIO2502 指南中的多项要求：Python package、CLI、API、pytest、notebook、README、环境文件、结果图表和课程报告。同时，项目问题具有明确生物学背景，不只是纯编程练习。
+项目覆盖课程项目指南中的多项要求：Python package、CLI、API、pytest、notebook、README、环境文件、结果图表和课程报告。同时，项目问题具有明确生物学背景，不只是纯编程练习。
 
 ## 八、测试与评价方案
 
@@ -222,7 +222,7 @@ RDKit、pandas、numpy、scikit-learn、matplotlib 和 umap-learn 均为成熟 P
 - 统计检验与可视化解释能力。
 - 可复现科研文档写作能力。
 
-因此，该项目适合作为 BIO2502 中“统计组学/机器学习用于生物信息学”方向的综合课程项目。
+因此，该项目适合作为“统计组学/机器学习用于生物信息学”方向的综合课程项目。
 
 ## 十三、参考资料
 

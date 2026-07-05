@@ -8,7 +8,7 @@
 
 Do membrane-related CYP substrates from `mydb` show local enrichment in P450DB chemical space?
 
-## Slide 3: Why This Fits BIO2502
+## Slide 3: Why This Fits the Course Project
 
 Python package, reusable APIs, CLI, tests, notebook, real biological data context, statistical interpretation.
 

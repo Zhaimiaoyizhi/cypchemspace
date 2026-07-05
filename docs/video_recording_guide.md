@@ -23,7 +23,7 @@
 
 说明项目名称：
 
-> 大家好，我们小组的 BIO2502 课程项目是 cypchemspace，一个用于比较 CYP 底物化学空间的 Python package。
+> 大家好，我们小组的课程项目是 cypchemspace，一个用于比较 CYP 底物化学空间的 Python package。
 
 ### 2. 项目背景
 

@@ -1,6 +1,6 @@
 # cypchemspace
 
-`cypchemspace` is a BIO2502 course-project package for comparing membrane-related CYP substrate chemical space against a P450DB background. It turns a larger exploratory CYP comparison repository into a compact, installable, and testable Python package.
+`cypchemspace` is a course-project package for comparing membrane-related CYP substrate chemical space against a P450DB background. It turns a larger exploratory CYP comparison repository into a compact, installable, and testable Python package.
 
 ## Biological Question
 
