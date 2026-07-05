@@ -1,0 +1,11 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>化学结构与 fingerprint 模块需求</title>
+<body contenteditable="true">
+<h1>化学结构与 fingerprint 模块需求</h1>
+<p>职责：用 RDKit 解析标准化 SMILES，并生成 Morgan fingerprint matrix。</p>
+<ul>
+<li>API：mol_from_smiles, canonicalize_smiles, make_morgan_fingerprint_matrix。</li>
+<li>无效 SMILES 不应导致整个流程崩溃，应被排除或返回 None。</li>
+<li>默认 fingerprint 为 Morgan radius 2, 2048 bits；CLI 可调整 bits 和 radius。</li>
+<li>验收：测试覆盖无效 SMILES、等价 SMILES 规范化、矩阵维度。</li>
+</ul>
+</body></html>

@@ -1,0 +1,11 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>UMAP 与 kNN enrichment 模块需求</title>
+<body contenteditable="true">
+<h1>UMAP 与 kNN enrichment 模块需求</h1>
+<p>职责：生成二维化学空间坐标，并计算 mydb 标签的局部邻域富集。</p>
+<ul>
+<li>默认尝试 UMAP；教学环境缺 UMAP 时允许 PCA fallback。</li>
+<li>kNN enrichment 统计正类点的正类近邻比例。</li>
+<li>p-value 使用标签置换的经验 upper-tail p-value。</li>
+<li>验收：toy cluster 测试中 observed 大于 null mean。</li>
+</ul>
+</body></html>

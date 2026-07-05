@@ -1,0 +1,14 @@
+name: cypchemspace
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - rdkit
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - umap-learn
+  - pytest
+  - nbformat
+  - pip

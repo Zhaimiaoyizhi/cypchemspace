@@ -1,0 +1,13 @@
+compound_id,std_smiles,label,source_membership,note
+limonene,C=C(C)C1CC=C(C)CC1,mydb,mydb,terpenoid-like teaching example from the local CYP substrate context
+germacrene_a,C=C(C)C1CC=C(C)CCC=C(C)CC1,mydb,mydb,terpenoid-like teaching example for local enrichment demo
+amorpha_diene,C=C(C)C1CCC(C)C2CCC(C)=CC12,mydb,mydb,terpenoid-like teaching example for local enrichment demo
+bicyclogermacrene,CC1=CC2C(CCC(C)=CCC1)C2(C)C,mydb,mydb,terpenoid-like teaching example for local enrichment demo
+carvone,C=C(C)C1CC=C(C)C(=O)C1,mydb,mydb,terpenoid-like teaching example for local enrichment demo
+epi_aristolochene,C=C(C)C1CC=C2CCCC(C)C2(C)C1,mydb,mydb,terpenoid-like teaching example for local enrichment demo
+l_tyrosine,NC(Cc1ccc(O)cc1)C(=O)O,p450db,p450db,P450DB background amino acid-like substrate
+hydroxytryptophan,NC(Cc1c[nH]c2ccc(O)cc12)C(=O)O,p450db,p450db,P450DB red-box-like hydrophilic substrate
+dodecanol,CCCCCCCCCCC(C)O,p450db,p450db,P450DB background alcohol
+hexanol,CCCCC(C)O,p450db,p450db,P450DB background short alcohol
+boldine,COc1cc2c(cc1O)CC1c3c(cc(O)c(OC)c3-2)CCN1C,p450db,p450db,P450DB background alkaloid
+adrenosterone,CC12CC(=O)C3C(CCC4=CC(=O)CCC43C)C1CCC2=O,p450db,p450db,P450DB steroid-like substrate

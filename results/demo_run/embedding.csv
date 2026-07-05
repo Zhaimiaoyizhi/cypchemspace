@@ -1,0 +1,13 @@
+compound_id,std_smiles,label,source_membership,note,umap_x,umap_y,embedding_method
+limonene,C=C(C)C1CC=C(C)CC1,mydb,mydb,terpenoid-like teaching example from the local CYP substrate context,2.035185576013159,-1.1519123520243324,pca
+germacrene_a,C=C(C)C1CC=C(C)CCC=C(C)CC1,mydb,mydb,terpenoid-like teaching example for local enrichment demo,2.2101624584111215,-1.3037808109406885,pca
+amorpha_diene,C=C(C)C1CCC(C)C2CCC(C)=CC12,mydb,mydb,terpenoid-like teaching example for local enrichment demo,1.3349041164775626,0.049473935690604195,pca
+bicyclogermacrene,CC1=CC2C(CCC(C)=CCC1)C2(C)C,mydb,mydb,terpenoid-like teaching example for local enrichment demo,1.7521451913060835,0.07820801936822812,pca
+carvone,C=C(C)C1CC=C(C)C(=O)C1,mydb,mydb,terpenoid-like teaching example for local enrichment demo,1.0661797149225938,-1.0779955910913233,pca
+epi_aristolochene,C=C(C)C1CC=C2CCCC(C)C2(C)C1,mydb,mydb,terpenoid-like teaching example for local enrichment demo,1.9245812007097272,-1.1187312127423548,pca
+l_tyrosine,NC(Cc1ccc(O)cc1)C(=O)O,p450db,p450db,P450DB background amino acid-like substrate,-2.3601314780605267,-0.4708679911871372,pca
+hydroxytryptophan,NC(Cc1c[nH]c2ccc(O)cc12)C(=O)O,p450db,p450db,P450DB red-box-like hydrophilic substrate,-3.585471217133455,0.2722421051939655,pca
+dodecanol,CCCCCCCCCCC(C)O,p450db,p450db,P450DB background alcohol,-2.72106944793206,-0.9947443856599236,pca
+hexanol,CCCCC(C)O,p450db,p450db,P450DB background short alcohol,-2.617807400257803,-1.0758658987928917,pca
+boldine,COc1cc2c(cc1O)CC1c3c(cc(O)c(OC)c3-2)CCN1C,p450db,p450db,P450DB background alkaloid,-0.26392378088418955,3.7990195865012724,pca
+adrenosterone,CC12CC(=O)C3C(CCC4=CC(=O)CCC43C)C1CCC2=O,p450db,p450db,P450DB steroid-like substrate,1.2252450664277836,2.994954595684583,pca

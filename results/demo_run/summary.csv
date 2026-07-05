@@ -1,0 +1,2 @@
+positive_label,k,n_rows,n_positive,n_permutations,observed_positive_neighbor_fraction,mean_null_positive_neighbor_fraction,delta,p_value,input_table,n_valid_molecules,fingerprint
+mydb,3,12,6,99,1.0,0.4674523007856341,0.5325476992143658,0.01,examples\example_data\cyp_substrates_demo.csv,12,"Morgan radius=2, n_bits=128"

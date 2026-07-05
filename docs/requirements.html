@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>cypchemspace 总需求文档</title>
+  <style>
+    body { font-family: Arial, "Microsoft YaHei", sans-serif; max-width: 980px; margin: 32px auto; line-height: 1.6; color: #1f2933; }
+    h1, h2 { color: #17324d; }
+    section { border: 1px solid #d6dde6; border-radius: 6px; padding: 16px 20px; margin: 18px 0; }
+    .editable { background: #fffdf4; border-left: 4px solid #d9a441; padding: 10px 12px; min-height: 28px; }
+    .critique { background: #f6f8fb; border-left: 4px solid #4a6fa5; padding: 10px 12px; }
+    code { background: #eef2f7; padding: 2px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>cypchemspace BIO2502 课程项目总需求文档</h1>
+  <p>本文档可直接在浏览器中编辑正文区域，用于锁定课程项目定位、边界和验收口径。</p>
+
+  <section>
+    <h2>1. 项目定位</h2>
+    <div class="editable" contenteditable="true">
+      将 CYP_comparison 中最适合课程展示的一条主线包装为 Python package：读取小型底物表，计算 RDKit Morgan fingerprint，生成 UMAP/PCA 二维化学空间图，并用 kNN permutation test 检验 mydb 底物相对 P450DB 背景的局部富集。
+    </div>
+    <div class="critique">挑刺：项目不应声称复现完整科研仓库；课程目标是 package、API、CLI、测试、notebook 和可复现 demo。</div>
+  </section>
+
+  <section>
+    <h2>2. 提交边界</h2>
+    <div class="editable" contenteditable="true">
+      提交 course_project_cypchemspace 独立目录。只附带教学级小样例数据，不提交完整 mydb/P450DB 大表，不依赖在线 PubChem 请求。
+    </div>
+    <div class="critique">挑刺：如果后续想提交全量结果，应只给下载/复现说明或摘要表，避免把大数据和历史输出混进课程包。</div>
+  </section>
+
+  <section>
+    <h2>3. 核心用户与场景</h2>
+    <div class="editable" contenteditable="true">
+      面向 BIO2502 任课教师和助教。评审者应能在本地安装包、运行 CLI、打开 notebook，并理解生物学问题、软件结构、统计方法和局限。
+    </div>
+  </section>
+
+  <section>
+    <h2>4. 验收标准</h2>
+    <div class="editable" contenteditable="true">
+      满足 pip install -e .、3-5 个可复用 API、一个 CLI、至少 5 个 pytest、demo notebook、README、核心图表、environment.yml/requirements.txt、课程报告和 slides outline。
+    </div>
+    <div class="critique">挑刺：UMAP 图不能单独支撑结论；报告中必须同步解释 kNN permutation statistic。</div>
+  </section>
+
+  <section>
+    <h2>5. 不做事项</h2>
+    <div class="editable" contenteditable="true">
+      不包装 LLM rescue v2 为主功能；不重跑所有 fingerprint sensitivity；不把 logP 或红框蛋白判断写成主流程硬依赖；不承诺膜定位证明。
+    </div>
+  </section>
+</body>
+</html>

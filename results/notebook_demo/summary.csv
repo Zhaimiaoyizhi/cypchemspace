@@ -1,0 +1,2 @@
+positive_label,k,n_rows,n_positive,n_permutations,observed_positive_neighbor_fraction,mean_null_positive_neighbor_fraction,delta,p_value
+mydb,3,12,6,19,0.9444444444444443,0.3771929824561403,0.567251461988304,0.05

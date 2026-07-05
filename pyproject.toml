@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cypchemspace"
+version = "0.1.0"
+description = "Course package for comparing CYP substrate chemical space against P450DB background."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "BIO2502 course project team" }
+]
+dependencies = [
+  "numpy",
+  "pandas",
+  "scikit-learn",
+  "matplotlib",
+  "umap-learn",
+  "rdkit",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "nbformat",
+]
+
+[project.scripts]
+cypchemspace = "cypchemspace.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

@@ -1,0 +1,11 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>API/CLI/package 模块需求</title>
+<body contenteditable="true">
+<h1>API/CLI/package 模块需求</h1>
+<p>职责：把分析能力组织成标准 Python src-layout package。</p>
+<ul>
+<li>必须支持 pip install -e .。</li>
+<li>CLI：cypchemspace analyze INPUT --out-dir OUTPUT。</li>
+<li>输出：embedding.csv, summary.csv, cypchemspace_umap.png。</li>
+<li>验收：python -m cypchemspace.cli --help 可查看帮助，CLI smoke test 可生成文件。</li>
+</ul>
+</body></html>
