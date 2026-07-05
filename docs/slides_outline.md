@@ -14,7 +14,7 @@ Python package, reusable APIs, CLI, tests, notebook, real biological data contex
 
 ## Slide 4: Data Boundary
 
-Small teaching subset in the course package; full raw database tables excluded.
+Cleaned 2,548-row substrate table is included for the live demo; raw database exports and online-query caches are excluded.
 
 ## Slide 5: Package Architecture
 
@@ -27,16 +27,16 @@ SMILES -> RDKit Mol -> Morgan fingerprint -> UMAP/PCA embedding -> kNN permutati
 ## Slide 7: Live Demo
 
 ```bash
-cypchemspace analyze examples/example_data/cyp_substrates_demo.csv --out-dir results/demo_run --n-permutations 99
+cypchemspace analyze examples/example_data/clean_rescued_substrates_2548.csv --out-dir results/demo_clean_2548_128bit_pca_perm19 --n-bits 128 --k 15 --n-permutations 19 --embedding-method pca
 ```
 
 ## Slide 8: Results
 
-Show `summary.csv` and `cypchemspace_umap.png`.
+Show the live demo `summary.csv` and `cypchemspace_umap.png`, then compare with `results/full_clean_reference/`.
 
 ## Slide 9: Interpretation and Limitations
 
-Local enrichment is supported statistically; UMAP is visual; demo data is not the full research dataset.
+Local enrichment is supported statistically; PCA/UMAP plots are visual summaries; 19 permutations are for recording speed, while the reference result uses 5,000 permutations.
 
 ## Slide 10: Future Work
 

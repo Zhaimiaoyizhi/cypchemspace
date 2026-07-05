@@ -2,7 +2,7 @@
 
 ## 摘要
 
-本课程项目将原始 `CYP_comparison` 研究仓库中最适合教学展示的一条主线，裁剪并包装为一个独立的 Python package：`cypchemspace`。项目围绕“本地数据库中的膜相关 CYP 底物是否在 P450DB 背景底物的化学结构空间中表现出局部富集”这一问题，构建了从小型底物表读取、RDKit 分子解析、Morgan fingerprint 生成、二维 embedding、kNN permutation 局部富集检验到核心图表输出的可复现流程。项目代码已整理为标准 `src-layout` 结构，包含命令行入口、可复用 API、pytest 测试、示例数据、demo notebook、README、环境文件和课程文档。项目公开仓库链接为：<https://github.com/Zhaimiaoyizhi/cypchemspace>。
+本课程项目将原始 `CYP_comparison` 研究仓库中最适合教学展示的一条主线，裁剪并包装为一个独立的 Python package：`cypchemspace`。项目围绕“本地数据库中的膜相关 CYP 底物是否在 P450DB 背景底物的化学结构空间中表现出局部富集”这一问题，构建了从清洗后的底物表读取、RDKit 分子解析、Morgan fingerprint 生成、二维 embedding、kNN permutation 局部富集检验到核心图表输出的可复现流程。项目代码已整理为标准 `src-layout` 结构，包含命令行入口、可复用 API、pytest 测试、示例数据、demo notebook、README、环境文件、演示结果和课程文档。项目公开仓库链接为：<https://github.com/Zhaimiaoyizhi/cypchemspace>。
 
 关键词：Cytochrome P450；Morgan fingerprint；RDKit；UMAP；kNN permutation；Python package
 
@@ -72,16 +72,16 @@ course_project_cypchemspace/
 
 ### 2.3 数据设计
 
-项目只附带小型教学示例数据 `examples/example_data/cyp_substrates_demo.csv`。该数据包含 `compound_id`、`std_smiles`、`label`、`source_membership` 和 `note` 等字段，用于演示完整流程。
+项目附带两类示例数据。第一类是很小的 toy table：`examples/example_data/cyp_substrates_demo.csv`，用于单元测试和快速理解数据格式。第二类是正式录屏演示使用的清洗表：`examples/example_data/clean_rescued_substrates_2548.csv`，该表从原始项目的 clean rescued 输出复制而来，包含 2,548 条可解析底物记录，其中 `mydb` 为 969 条，`p450db` 背景为 1,579 条。
 
-出于课程提交和复现稳定性的考虑，本项目不直接包含完整原始大表、历史中间结果或在线 PubChem 查询流程。完整研究分析作为背景说明，而不是课程包运行的必要依赖。
+出于课程提交和复现稳定性的考虑，本项目不直接包含更早阶段的原始数据库导出、历史中间结果或在线 PubChem 查询流程。课程包内的 `results/demo_clean_2548_128bit_pca_perm19/` 保存现场可复跑的快速演示结果；`results/full_clean_reference/` 保存原始项目中实际全量/参考运行结果，包括 5,000 次置换的 kNN enrichment 表和 clean rescued UMAP 图。
 
 ### 2.4 命令行与 API
 
 命令行示例：
 
 ```bash
-cypchemspace analyze examples/example_data/cyp_substrates_demo.csv --out-dir results/demo_run --n-permutations 99
+cypchemspace analyze examples/example_data/clean_rescued_substrates_2548.csv --out-dir results/demo_clean_2548_128bit_pca_perm19 --n-bits 128 --k 15 --n-permutations 19 --embedding-method pca
 ```
 
 主要输出：
@@ -95,9 +95,9 @@ API 示例：
 ```python
 from cypchemspace import load_substrate_table, make_morgan_fingerprint_matrix, knn_label_enrichment
 
-table = load_substrate_table("examples/example_data/cyp_substrates_demo.csv")
-fingerprints, valid_table = make_morgan_fingerprint_matrix(table)
-stats = knn_label_enrichment(fingerprints, valid_table["label"], positive_label="mydb")
+table = load_substrate_table("examples/example_data/clean_rescued_substrates_2548.csv")
+fingerprints, valid_table = make_morgan_fingerprint_matrix(table, n_bits=128)
+stats = knn_label_enrichment(fingerprints, valid_table["label"], positive_label="mydb", k=15, n_permutations=19)
 ```
 
 ## 三、测试结果
@@ -127,21 +127,31 @@ python -m pytest
 CLI 演示命令：
 
 ```bash
-python -m cypchemspace.cli analyze examples/example_data/cyp_substrates_demo.csv --out-dir results/demo_run --n-bits 128 --k 3 --n-permutations 99 --embedding-method pca
+python -m cypchemspace.cli analyze examples/example_data/clean_rescued_substrates_2548.csv --out-dir results/demo_clean_2548_128bit_pca_perm19 --n-bits 128 --k 15 --n-permutations 19 --embedding-method pca
 ```
 
 演示输出中，`summary.csv` 显示：
 
 | 指标 | 数值 |
 |---|---:|
-| n_rows | 12 |
-| n_positive | 6 |
-| observed_positive_neighbor_fraction | 1.0 |
-| mean_null_positive_neighbor_fraction | 0.4674523007856341 |
-| delta | 0.5325476992143658 |
-| p_value | 0.01 |
+| n_rows | 2548 |
+| n_positive | 969 |
+| observed_positive_neighbor_fraction | 0.5155142758857929 |
+| mean_null_positive_neighbor_fraction | 0.3781869534517408 |
+| delta | 0.1373273224340521 |
+| p_value | 0.05 |
 
-该结果说明，在教学示例数据中，`mydb` 类底物在 fingerprint 近邻空间中表现出局部聚集。需要注意的是，该结果用于展示方法流程；完整科研结论仍应基于原始项目中的全量分析和敏感性分析。
+该演示使用 128-bit fingerprint、PCA 和 19 次置换，运行时间适合录屏现场复现。结果说明，在清洗后的 2,548 条底物记录中，`mydb` 类底物在 fingerprint 近邻空间中相对于随机标签置换表现出局部聚集。需要注意的是，19 次置换的经验 p 值分辨率较粗，因此它主要用于展示完整流程。
+
+项目实际全量/参考结果保存在 `results/full_clean_reference/`。其中 `combined_stats_results_perm5000.tsv` 使用 5,000 次置换，结果如下：
+
+| k | obs_knn_enrichment | null_mean | delta_vs_null | p_perm_one_sided_greater |
+|---:|---:|---:|---:|---:|
+| 10 | 0.5396284829721361 | 0.3800361197110423 | 0.15959236326109377 | 0.0001999600079984003 |
+| 15 | 0.5137942896456829 | 0.37996250429996564 | 0.1338317853457172 | 0.0001999600079984003 |
+| 30 | 0.47481940144478846 | 0.37996431372549017 | 0.09485508771929829 | 0.0001999600079984003 |
+
+该参考结果与现场演示结果方向一致，但置换次数更高，因此更适合用于最终报告中的统计解释。
 
 ## 四、讨论
 
@@ -149,7 +159,7 @@ python -m cypchemspace.cli analyze examples/example_data/cyp_substrates_demo.csv
 
 从方法上看，Morgan fingerprint 提供了小分子结构的离散向量表示，UMAP/PCA 提供二维可视化，kNN permutation test 则提供局部富集的统计判断。报告中特别强调：UMAP 图不能单独作为统计结论，必须与 kNN permutation 结果结合解释。
 
-本项目也存在限制。首先，课程包中的示例数据是教学子集，不能替代全量科研分析。其次，项目没有纳入在线 PubChem 结构映射、LLM rescue、八种 fingerprint sensitivity、unique-InChIKey 去重和 logP 分析等完整扩展流程。再次，logP 或化学空间聚集只能辅助解释底物性质，不能直接证明蛋白膜定位。
+本项目也存在限制。首先，现场演示为了录屏速度采用 128-bit fingerprint、PCA 和 19 次置换，因此 p 值只能作为流程演示，不应替代 5,000 次置换参考结果。其次，项目没有纳入在线 PubChem 结构映射、LLM rescue、八种 fingerprint sensitivity、unique-InChIKey 去重和 logP 分析等完整扩展流程。再次，logP 或化学空间聚集只能辅助解释底物性质，不能直接证明蛋白膜定位。
 
 未来可扩展方向包括：加入多种 RDKit fingerprint 的敏感性分析、加入 unique-InChIKey 去重流程、加入 logP 统计模块、增加完整数据下载/复现脚本，以及用 Snakemake 或 Nextflow 管理全流程。
 

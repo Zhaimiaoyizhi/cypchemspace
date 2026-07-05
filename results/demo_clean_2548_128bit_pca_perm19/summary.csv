@@ -1,0 +1,2 @@
+positive_label,k,n_rows,n_positive,n_permutations,observed_positive_neighbor_fraction,mean_null_positive_neighbor_fraction,delta,p_value,input_table,n_valid_molecules,fingerprint
+mydb,15,2548,969,19,0.5155142758857929,0.3781869534517408,0.1373273224340521,0.05,examples\example_data\clean_rescued_substrates_2548.csv,2548,"Morgan radius=2, n_bits=128"

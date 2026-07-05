@@ -13,7 +13,7 @@ pip install -e .
 ```python
 from cypchemspace import load_substrate_table
 
-table = load_substrate_table("examples/example_data/cyp_substrates_demo.csv")
+table = load_substrate_table("examples/example_data/clean_rescued_substrates_2548.csv")
 table.groupby("label").size()
 ```
 
@@ -25,13 +25,16 @@ The table contains two labels:
 ## 3. Run the CLI
 
 ```bash
-cypchemspace analyze examples/example_data/cyp_substrates_demo.csv --out-dir results/demo_run --n-permutations 99
+cypchemspace analyze examples/example_data/clean_rescued_substrates_2548.csv --out-dir results/demo_clean_2548_128bit_pca_perm19 --n-bits 128 --k 15 --n-permutations 19 --embedding-method pca
 ```
 
 Open:
 
-- `results/demo_run/summary.csv`
-- `results/demo_run/cypchemspace_umap.png`
+- `results/demo_clean_2548_128bit_pca_perm19/summary.csv`
+- `results/demo_clean_2548_128bit_pca_perm19/cypchemspace_umap.png`
+
+The output can be compared with `results/full_clean_reference/`, which stores
+the full/reference project result produced with 5,000 permutations.
 
 ## 4. Use the Python API
 
@@ -39,10 +42,10 @@ Open:
 from cypchemspace import load_substrate_table, make_morgan_fingerprint_matrix, knn_label_enrichment
 from cypchemspace.embedding import compute_embedding
 
-table = load_substrate_table("examples/example_data/cyp_substrates_demo.csv")
-fingerprints, valid_table = make_morgan_fingerprint_matrix(table)
-embedding = compute_embedding(fingerprints, method="umap")
-stats = knn_label_enrichment(fingerprints, valid_table["label"], positive_label="mydb", n_permutations=99)
+table = load_substrate_table("examples/example_data/clean_rescued_substrates_2548.csv")
+fingerprints, valid_table = make_morgan_fingerprint_matrix(table, n_bits=128)
+embedding = compute_embedding(fingerprints, method="pca")
+stats = knn_label_enrichment(fingerprints, valid_table["label"], positive_label="mydb", k=15, n_permutations=19)
 stats
 ```
 

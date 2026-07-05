@@ -1,0 +1,14 @@
+{
+  "n_rows": 2548,
+  "n_positive": 969,
+  "n_negative": 1579,
+  "ks": [
+    10,
+    15,
+    30
+  ],
+  "metric": "jaccard",
+  "n_perm": 5000,
+  "strata_cols": [],
+  "seed": 42
+}
