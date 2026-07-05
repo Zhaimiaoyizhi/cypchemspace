@@ -70,7 +70,11 @@ def run_analyze(args: argparse.Namespace) -> int:
 
     embedded_table.to_csv(out_dir / "embedding.csv", index=False)
     write_summary_csv(summary, out_dir / "summary.csv")
-    plot_embedding(embedded_table, out_dir / "cypchemspace_umap.png")
+    if args.embedding_method == "pca":
+        x_label, y_label = "PCA 1", "PCA 2"
+    else:
+        x_label, y_label = "UMAP 1", "UMAP 2"
+    plot_embedding(embedded_table, out_dir / "cypchemspace_umap.png", x_label=x_label, y_label=y_label)
 
     print(f"Wrote {out_dir / 'embedding.csv'}")
     print(f"Wrote {out_dir / 'summary.csv'}")

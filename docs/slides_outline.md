@@ -32,7 +32,7 @@ cypchemspace analyze examples/example_data/clean_rescued_substrates_2548.csv --o
 
 ## Slide 8: Results
 
-Show the live demo `summary.csv` and `cypchemspace_umap.png`, then compare with `results/full_clean_reference/`.
+Show the live demo `summary.csv` and `cypchemspace_umap.png`. Explain the PCA plot layers: gray `P450DB` bottom, blue `mydb` middle, orange shared compounds top. Then compare with `results/full_clean_reference/`.
 
 ## Slide 9: Interpretation and Limitations
 

@@ -16,6 +16,8 @@ recording:
 - embedding: PCA
 - kNN statistic: `k=15`
 - permutations: 19
+- figure layers: gray `P450DB` bottom, blue `mydb` middle, orange shared
+  compounds top
 
 The summary table records `delta = 0.1373273224340521` and `p_value = 0.05`.
 Because 19 permutations give coarse p-value resolution, use this as a live

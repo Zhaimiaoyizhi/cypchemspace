@@ -61,6 +61,10 @@ Expected outputs:
 - `results/demo_clean_2548_128bit_pca_perm19/summary.csv`
 - `results/demo_clean_2548_128bit_pca_perm19/cypchemspace_umap.png`
 
+In the live PCA figure, points shared by both databases are drawn in orange on
+the top layer, `mydb`-only points are drawn in blue on the middle layer, and
+`P450DB`-only points are drawn in gray on the bottom layer.
+
 The small 12-row teaching toy table is still available as
 `examples/example_data/cyp_substrates_demo.csv` for unit-scale experiments.
 
@@ -104,6 +108,10 @@ final project interpretation.
 ## Result Interpretation
 
 The kNN permutation test asks whether `mydb` compounds have more `mydb` neighbors than expected after random label shuffling. A positive `delta` and a low empirical p-value support local enrichment, but the result should be reported as a fingerprint-neighborhood signal, not proof of absolute class separation.
+
+The scatter plot uses draw order deliberately: gray `P450DB` background first,
+blue `mydb` points second, and orange shared compounds last. This makes the
+database-overlap points visible even when they fall inside dense regions.
 
 ## Limitations
 

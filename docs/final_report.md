@@ -90,6 +90,8 @@ cypchemspace analyze examples/example_data/clean_rescued_substrates_2548.csv --o
 - `summary.csv`
 - `cypchemspace_umap.png`
 
+现场 PCA 图采用固定图层顺序：`P450DB` only 点为灰色并置于底层，`mydb` only 点为蓝色并置于中层，两个数据库共有的底物按 `std_inchikey` 判断，使用橙色并置于顶层。这样可以避免 shared 底物被底层背景点遮挡。
+
 API 示例：
 
 ```python
@@ -142,6 +144,8 @@ python -m cypchemspace.cli analyze examples/example_data/clean_rescued_substrate
 | p_value | 0.05 |
 
 该演示使用 128-bit fingerprint、PCA 和 19 次置换，运行时间适合录屏现场复现。结果说明，在清洗后的 2,548 条底物记录中，`mydb` 类底物在 fingerprint 近邻空间中相对于随机标签置换表现出局部聚集。需要注意的是，19 次置换的经验 p 值分辨率较粗，因此它主要用于展示完整流程。
+
+现场演示图中，橙色点表示两个数据库共有的底物，绘制在最上层；蓝色点表示 `mydb` only 底物，绘制在中层；灰色点表示 `P450DB` only 背景底物，绘制在底层。该图层设计使共有底物在密集区域中仍然可见。
 
 项目实际全量/参考结果保存在 `results/full_clean_reference/`。其中 `combined_stats_results_perm5000.tsv` 使用 5,000 次置换，结果如下：
 

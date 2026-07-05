@@ -33,6 +33,11 @@ Open:
 - `results/demo_clean_2548_128bit_pca_perm19/summary.csv`
 - `results/demo_clean_2548_128bit_pca_perm19/cypchemspace_umap.png`
 
+The PCA figure draws `P450DB`-only points in gray on the bottom layer,
+`mydb`-only points in blue on the middle layer, and shared compounds in orange
+on the top layer. Shared compounds are detected by `std_inchikey` values that
+appear under both labels.
+
 The output can be compared with `results/full_clean_reference/`, which stores
 the full/reference project result produced with 5,000 permutations.
 

@@ -8,3 +8,4 @@ build/
 .ipynb_checkpoints/
 docs/*.docx
 docs/~$*.docx
+docs/*.tmp
